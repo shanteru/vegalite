@@ -5,7 +5,7 @@
     "height": 600,
     "projection": {"type": "equirectangular"},
     "data": {
-      "url": "https://raw.githubusercontent.com/shanteru/fit3179-homework/main/US_States_SOVI_Infographics.json",
+      "url": "https://raw.githubusercontent.com/shanteru/fit3179-homework/master/US_States_SOVI_Infographics.json",
       "format": {"type": "topojson", "feature": "US_States_SOVI_Infographics"}
     },
     "transform": [
@@ -13,7 +13,7 @@
         "lookup": "properties.STATE_NAME",
         "from": {
           "data": {
-            "url": "https://raw.githubusercontent.com/shanteru/fit3179-homework/main/data/1976-2020-president.csv"
+            "url": "https://raw.githubusercontent.com/shanteru/fit3179-homework/master/data/1976-2020-president.csv"
           },
           "key": "state",
           "fields": ["totalvotes", "candidatevotes", "candidate"]

@@ -19,7 +19,7 @@
           "fields": ["totalvotes", "candidatevotes", "candidate"]
         }
       },
-      {"calculate": "datum.totalvotes/datum.properties.POPULATION * 10000" , "as" : "totalvotes" }
+      {"calculate": "datum.totalvotes/datum.properties.POPULATION * 10000" , "as" : "Total votes per 10,000 population" }
     ],
     "mark": {"type": "geoshape"},
     "encoding": {

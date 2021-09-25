@@ -19,12 +19,12 @@
           "fields": ["total_votes"]
         }
       },
-      {"calculate": "datum.total_votes/datum.properties.POPULATION * 10000" , "as" : "Total votes per 10,000 population" }
+      {"calculate": "datum.total_votes/datum.properties.POPULATION * 100000" , "as" : "Total votes per 1 million population" }
     ],
     "mark": {"type": "geoshape"},
     "encoding": {
       "color": {
-        "field": "Total votes per 10,000 population",
+        "field": "Total votes per 1 million population",
         "type": "quantitative",
         "scale": {"type": "log"}
       },

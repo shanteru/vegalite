@@ -1,7 +1,7 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": "Total votes for 2020 US Election by State",
-    "width": 1000,
+    "width": 800,
     "height": 600,
     "projection": {"type": "equirectangular"},
     "data": {
@@ -19,19 +19,21 @@
           "fields": ["total_votes"]
         }
       },
-      {"calculate": "datum.total_votes/datum.properties.POPULATION * 100000" , "as" : "Total votes per 1 million population" }
+      {
+        "calculate": "datum.total_votes/datum.properties.POPULATION * 100000",
+        "as": "Total votes per 1 million pop."
+      }
     ],
     "mark": {"type": "geoshape"},
     "encoding": {
       "color": {
-        "field": "Total votes per 1 million population",
+        "field": "Total votes per 1 million pop.",
         "type": "quantitative",
-        "scale": {"type": "threshold",
-        "domain": [10000,40000 , 60000]}
+        "scale": {"type": "threshold", "domain": [45000, 50000,55000,60000 ]}
       },
       "tooltip": [
         {"field": "properties.STATE_NAME", "type": "nominal", "title": "State"},
-        {"field": "total_votes", "type": "quantitative", "title" : "Total Votes"}
+        {"field": "total_votes", "type": "quantitative", "title": "Total Votes"}
       ]
     }
   }

@@ -1,7 +1,7 @@
 # FIT3179 Homework Week 9 - Vega-lite Maps
 
 ## Resources
-1. US 2020 Election[Kaggle](https://www.kaggle.com/unanimad/us-election-2020)
+1. US 2020 Election [Kaggle](https://www.kaggle.com/unanimad/us-election-2020)
 
 
 <br>

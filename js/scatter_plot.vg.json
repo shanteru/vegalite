@@ -1,0 +1,127 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 800,
+    "height": 600,
+    "title": "Total votes of Presidential winner in US 2020 Election by County",
+    "data": {
+      "url": "https://raw.githubusercontent.com/shanteru/fit3179-homework/master/data/president_winner.csv"
+    },
+    "params": [
+      {
+        "name": "Votes_Above",
+        "value": 0,
+        "bind": {
+          "input": "range",
+          "min": 0,
+          "max": 100000000,
+          "step": 1000000,
+          "name": "Minimum Votes: "
+        }
+      },
+      {
+        "name": "Candidate_selection",
+        "bind": {
+          "input": "select",
+          "options": [
+            null,
+            "Donald Trump",
+            "Jo Jogernsen",
+            "Joe Biden",
+            "Write-ins"
+          ],
+          "labels":[
+            "Show All",
+            "Donald Trump",
+            "Jo Jogernsen",
+            "Joe Biden",
+            "Write-ins"
+          ],
+          "name": "Candidate Selection: "
+        }
+      }
+    ],
+    "transform": [
+        {"filter": "datum.total_votes_county > 0"},
+      {"filter": "datum.total_votes_candidate > Votes_Above"},
+      {"filter": "Candidate_selection == null || datum.Candidate == Candidate_selection"},
+      {
+        "calculate": "datum.total_votes_candidate/datum.total_votes_county * 100",
+        "as": "Votes percentage"
+      }
+    ],
+    "encoding": {
+      "x": {
+        "field": "percent",
+        "type": "quantitative",
+        "title": "VEP Turnout rate",
+        "axis": {"tickCount": 7},
+        "scale": {"type": "log", "domain": [1, 100]}
+      },
+      "y": {
+        "field": "total_votes_candidate",
+        "type": "quantitative",
+        "axis": {"tickCount": 6},
+        "scale": {"type": "log", "domain": [1, 4000000]}
+      }
+    },
+    "layer": [
+      {
+        "selection": {
+          "candidate_highlight": {
+            "type": "multi",
+            "fields": ["Candidate"],
+            "bind": "legend"
+          }
+        },
+        "mark": "circle",
+        "encoding": {
+          "size": {
+            "field": "Votes",
+            "type": "quantitative",
+            "scale": {
+              "type": "threshold",
+              "domain": [5000, 500000, 1000000, 2000000, 4000000],
+              "range": [10, 50, 150, 200, 300, 400]
+            },
+            "legend": {"format": ".1s"}
+          },
+          "color": {
+            "field": "Candidate",
+            "type": "nominal",
+            "scale": {
+              "domain": [
+                
+            "Donald Trump",
+            "Jo Jogernsen",
+            "Joe Biden",
+            "Write-ins"
+              ],
+              "range": [
+                "#e41a1c",
+                "#984ea3",
+                "#ff7f00",
+                "#a6cee3"
+              ]
+            }
+          },
+          "opacity": {
+            "condition": {"selection": "candidate_highlight", "value": 0.6},
+            "value": 0.2
+          },
+          "tooltip": [
+            {"field": "State", "type": "nominal"},
+            {"field": "County", "type": "nominal", "format": ","},
+            {"field": "Candidate", "type": "nominal", "format": ","},
+            {"field": "total_votes_candidate", "type": "quantitative","title":"Total Votes", "format": ","},
+            {
+              "field": "Votes percentage",
+              "type": "quantitative",
+              "format": ".2f"
+            }
+          ]
+        }
+      }
+      
+      
+    ]
+  }

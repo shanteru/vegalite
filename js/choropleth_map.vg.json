@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Total votes for President in 2020 US Election by State",
+    "title": "Total votes for President seat in 2020 US Election by State",
     "width": 1000,
     "height": 600,
     "projection": {"type": "equirectangular"},

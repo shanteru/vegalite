@@ -82,36 +82,47 @@
         },
         "color":{"field": "Candidate",
         "type": "nominal"},
+        "layer": [
+
+        {
+            "mark": {
+            "type": "text",
+            "align": "right",
+            "baseline": "middle",
+            "dx": -12,
+            "fontSize": 11.5,
+            "fontStyle": "italic"
+            },
+            "encoding": {
+           
+            "text": {"field": "Country", "type": "nominal"},
+            "color": {"value": "black"},
+            "opacity": {
+            "condition": {
+            "test": "datum['County'] == 'Washington County' || datum['County'] == 'Cobb County'",
+            "value": 1
+            },
+            "value": 0
+            },
+            "tooltip": [
+            {"field": "State", "type": "nominal"},
+            {"field": "County", "type": "nominal"},
+            {"field": "Candidate", "type": "nominal"},
+            {"field": "total_votes_candidate", "type": "quantitative", "format": ","},
+            {
+            "field": "Votes Percentage",
+            "type": "quantitative",
+            "format": ".2f"
+            }
+            ]
+            }
+            }
+        ]
+           
+       
 
         
-        "tooltip": [
-            {
-                "field": "State",
-                "type": "nominal"
-            },
-            {
-                "field": "County",
-                "type": "nominal"
-            },
-            {
-                "field": "Candidate",
-                "type": "nominal"
-            },
-            {
-                "field": "total_votes_candidate",
-                "type": "quantitative",
-                "title": "Candidate's Total Votes"
-            },
-            {
-                "field":"Votes Percentage",
-                "type": "quantitative",
-                "format": ".2f"
-
-                
-
-            }
-
-        ]
+        
     }
     
     

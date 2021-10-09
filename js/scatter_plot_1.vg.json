@@ -49,7 +49,14 @@
         {
             "calculate": "datum.total_votes_candidate/datum.total_votes_county * 100",
             "as": "Votes percentage"
-          }
+          },
+          
+            {
+                "calculate": "'The highest votes attained by candidate: 3028885, Joe Biden in Los Angeles County ' ",
+                "as": "text_annotation"
+            }
+          
+
     ],
     
 
@@ -96,38 +103,11 @@
                         ]}},
 
         {
-            "mark": {
-            "type": "text",
-            "align": "right",
-            "baseline": "middle",
-            "dx": -12,
-            "fontSize": 11.5,
-            "fontStyle": "italic"
-            },
-            "encoding": {
-           
-            "text": {"field": "Country", "type": "nominal"},
-            "color": {"value": "black"},
-            "opacity": {
-            "condition": {
-            "test": "datum['County'] == 'Washington County' || datum['County'] == 'Cobb County'",
-            "value": 1
-            },
-            "value": 0
-            },
-            "tooltip": [
-            {"field": "State", "type": "nominal"},
-            {"field": "County", "type": "nominal"},
-            {"field": "Candidate", "type": "nominal"},
-            {"field": "total_votes_candidate", "type": "quantitative", "format": ","},
-            {
-            "field": "Votes Percentage",
-            "type": "quantitative",
-            "format": ".2f"
-            }
-            ]
-            }
-            }
+            "mark": { "type": "text", "align": "left", "dx": 4 },
+                            "encoding": {
+                                "text": { "field": "text_annotation" }
+                            }
+                        }
         ]
            
        

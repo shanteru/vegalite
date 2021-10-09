@@ -83,7 +83,17 @@
                         }
                     },
                     "color":{"field": "Candidate",
-                    "type": "nominal"}}},
+                    "type": "nominal"},"tooltip": [
+                        {"field": "State", "type": "nominal"},
+                        {"field": "County", "type": "nominal"},
+                        {"field": "Candidate", "type": "nominal"},
+                        {"field": "total_votes_candidate", "type": "quantitative", "format": ","},
+                        {
+                        "field": "Votes Percentage",
+                        "type": "quantitative",
+                        "format": ".2f"
+                        }
+                        ]}},
 
         {
             "mark": {

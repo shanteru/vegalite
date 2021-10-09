@@ -16,7 +16,7 @@
             "min": 0,
             "max": 4000000,
             "step": 100000,
-            "name": "Minimum Votes in County: "
+            "name": "Minimum Votes of Candidate in County: "
           }
         },
         {
@@ -44,6 +44,8 @@
     "transform": [
         {"filter": "datum.total_votes_candidate > 0"},
         {"filter": "datum.total_votes_county > 0"},
+        {"filter": "datum.total_votes_candidate > Votes_Above"},
+      {"filter": "Candidate_selection == null || datum.Candidate == Candidate_selection"},
         {
             "calculate": "datum.total_votes_candidate/datum.total_votes_county * 100",
             "as": "Votes percentage"
@@ -54,26 +56,26 @@
         "x": {
             "field": "total_votes_candidate",
             "type": "quantitative",
-            "axis": {"tickCount": 7},
+            "axis": {"tickCount": 5},
             "title":"Candidate's Total Votes",
             "scale": {
                 "type": "log",
                 "domain": [
                     1,
-                    4000000
+                    5000000
                 ]
             }
         },
         "y": {
             "field": "total_votes_county",
             "type": "quantitative",
-            "axis": {"tickCount": 7},
+            "axis": {"tickCount": 5},
             "title":"County's Total Votes",
             "scale": {
                 "type": "log",
                 "domain": [
                     1,
-                    4000000
+                    5000000
                 ]
             }
         },
@@ -92,8 +94,16 @@
             },
             {
                 "field": "total_votes_candidate",
+                "type": "quantitative",
+                "title": "Candidate's Total Votes"
+            },
+            {
+                "field":"Votes Percentage",
                 "type": "quantitative"
+                
+
             }
+
         ]
     }
 }

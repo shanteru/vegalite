@@ -128,7 +128,7 @@
                             "filter":"datum.ranking==1"
                         },
                         {
-                            "calculate": "'The highest votes attained by candidate: 3028885, Joe Biden in Los Angeles County ' ",
+                            "calculate": "'The highest votes attained by candidate: '  + datum['total_votes_candidate'] ",
                             "as": "text_annotation"
                         }],
                     

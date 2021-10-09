@@ -52,37 +52,38 @@
           }
     ],
     
-    "mark": "point",
-    "encoding": {
-        "x": {
-            "field": "total_votes_candidate",
-            "type": "quantitative",
-            "axis": {"tickCount": 5},
-            "title":"Candidate's Total Votes",
-            "scale": {
-                "type": "log",
-                "domain": [
-                    1,
-                    10000000
-                ]
-            }
-        },
-        "y": {
-            "field": "total_votes_county",
-            "type": "quantitative",
-            "axis": {"tickCount": 5},
-            "title":"County's Total Votes",
-            "scale": {
-                "type": "log",
-                "domain": [
-                    1,
-                    10000000
-                ]
-            }
-        },
-        "color":{"field": "Candidate",
-        "type": "nominal"},
+
         "layer": [
+            {"mark": "point",
+                "encoding": {
+                    "x": {
+                        "field": "total_votes_candidate",
+                        "type": "quantitative",
+                        "axis": {"tickCount": 5},
+                        "title":"Candidate's Total Votes",
+                        "scale": {
+                            "type": "log",
+                            "domain": [
+                                1,
+                                10000000
+                            ]
+                        }
+                    },
+                    "y": {
+                        "field": "total_votes_county",
+                        "type": "quantitative",
+                        "axis": {"tickCount": 5},
+                        "title":"County's Total Votes",
+                        "scale": {
+                            "type": "log",
+                            "domain": [
+                                1,
+                                10000000
+                            ]
+                        }
+                    },
+                    "color":{"field": "Candidate",
+                    "type": "nominal"}}},
 
         {
             "mark": {
@@ -123,7 +124,7 @@
 
         
         
-    }
+
     
     
 }

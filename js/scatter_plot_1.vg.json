@@ -103,7 +103,7 @@
                         ]}},
 
         {
-            "mark": { "type": "text", "align": "left", "dx": 4 },
+            "mark": { "type": "text", "align": "left", "dx": 3 },
                             "encoding": {
                                 "text": { "field": "text_annotation" }
                             }

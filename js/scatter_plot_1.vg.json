@@ -1,0 +1,63 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Total votes of Presidential winner and their Votes Percentage",
+    "width": 800,
+    "height": 600,
+    "description": "A scatterplot showing total votes for presidential seat in US 2020 Election.",
+    "data": {
+        "url": "https://raw.githubusercontent.com/shanteru/fit3179-homework/master/data/president_winner.csv"
+    },
+    "transform": [
+        {"filter": "datum.total_votes_candidate > 0"},
+        {"filter": "datum.total_votes_county > 0"},
+        {
+            "calculate": "datum.total_votes_candidate/datum.total_votes_county * 100",
+            "as": "Votes percentage"
+          }
+    ],
+    "mark": "point",
+    "encoding": {
+        "x": {
+            "field": "total_votes_candidate",
+            "type": "quantitative",
+            "axis": {"tickCount": 7},
+            "scale": {
+                "type": "log",
+                "domain": [
+                    1000,
+                    4000000
+                ]
+            }
+        },
+        "y": {
+            "field": "total_votes_county",
+            "type": "quantitative",
+            "axis": {"tickCount": 7},
+            "scale": {
+                "type": "log",
+                "domain": [
+                    1000,
+                    4000000
+                ]
+            }
+        },
+        "tooltip": [
+            {
+                "field": "State",
+                "type": "nominal"
+            },
+            {
+                "field": "County",
+                "type": "nominal"
+            },
+            {
+                "field": "Candidate",
+                "type": "nominal"
+            },
+            {
+                "field": "total_votes_candidate",
+                "type": "quantitative"
+            }
+        ]
+    }
+}

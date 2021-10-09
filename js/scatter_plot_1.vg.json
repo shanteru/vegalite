@@ -14,8 +14,8 @@
           "bind": {
             "input": "range",
             "min": 0,
-            "max": 4000000,
-            "step": 100000,
+            "max": 3200000,
+            "step": 1000,
             "name": "Minimum Votes of Candidate in County: "
           }
         },
@@ -104,7 +104,9 @@
             },
             {
                 "field":"Votes Percentage",
-                "type": "quantitative"
+                "type": "quantitative",
+                "format": ".2f"
+
                 
 
             }

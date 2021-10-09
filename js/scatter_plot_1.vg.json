@@ -42,6 +42,21 @@
         }
       ],
     "transform": [
+        {"window": [
+            {
+              "op": "rank",
+              "as": "ranking"
+            }
+          ],
+          "sort": [
+            {
+              "field": "total_votes_candidate",
+              "order": "descending"
+            }
+          ]
+        },{
+            "filter":"datum.ranking==1"
+        },
         {"filter": "datum.total_votes_candidate > 0"},
         {"filter": "datum.total_votes_county > 0"},
         {"filter": "datum.total_votes_candidate > Votes_Above"},
@@ -49,72 +64,90 @@
         {
             "calculate": "datum.total_votes_candidate/datum.total_votes_county * 100",
             "as": "Votes percentage"
-          },
-          
-            {
-                "calculate": "'The highest votes attained by candidate: 3028885, Joe Biden in Los Angeles County ' ",
-                "as": "text_annotation"
-            }
+          }
           
 
     ],
     
-
-        "layer": [
-            {"mark": "point",
-                "encoding": {
-                    "x": {
-                        "field": "total_votes_candidate",
-                        "type": "quantitative",
-                        "axis": {"tickCount": 5},
-                        "title":"Candidate's Total Votes",
-                        "scale": {
-                            "type": "log",
-                            "domain": [
-                                1,
-                                10000000
-                            ]
-                        }
-                    },
-                    "y": {
-                        "field": "total_votes_county",
-                        "type": "quantitative",
-                        "axis": {"tickCount": 5},
-                        "title":"County's Total Votes",
-                        "scale": {
-                            "type": "log",
-                            "domain": [
-                                1,
-                                10000000
-                            ]
-                        }
-                    },
-                    "color":{"field": "Candidate",
-                    "type": "nominal"},"tooltip": [
-                        {"field": "State", "type": "nominal"},
-                        {"field": "County", "type": "nominal"},
-                        {"field": "Candidate", "type": "nominal"},
-                        {"field": "total_votes_candidate", "type": "quantitative", "format": ","},
-                        {
-                        "field": "Votes Percentage",
-                        "type": "quantitative",
-                        "format": ".2f"
-                        }
-                        ]}},
-
-        {
-            "mark": { "type": "text", "align": "left", "dx": 3 },
-                            "encoding": {
-                                "text": { "field": "text_annotation" }
+        "mark": {"type": "point"},
+        "encoding": {
+            "x": {
+                "field": "total_votes_candidate",
+                "type": "quantitative",
+                "axis": {"tickCount": 5},
+                "title":"Candidate's Total Votes",
+                "scale": {
+                    "type": "log",
+                    "domain": [
+                        1,
+                        10000000
+                    ]
+                }
+            },
+            "y": {
+                "field": "total_votes_county",
+                "type": "quantitative",
+                "axis": {"tickCount": 5},
+                "title":"County's Total Votes",
+                "scale": {
+                    "type": "log",
+                    "domain": [
+                        1,
+                        10000000
+                    ]
+                }
+            },
+            "color":{"field": "Candidate",
+            "type": "nominal"},"tooltip": [
+                {"field": "State", "type": "nominal"},
+                {"field": "County", "type": "nominal"},
+                {"field": "Candidate", "type": "nominal"},
+                {"field": "total_votes_candidate", "type": "quantitative", "format": ","},
+                {
+                "field": "Votes Percentage",
+                "type": "quantitative",
+                "format": ".2f"
+                }
+                ]},
+    
+                "layer":[
+                    {"transform": [
+                        {"window": [
+                            {
+                              "op": "rank",
+                              "as": "ranking"
                             }
-                        }
-        ]
+                          ],
+                          "sort": [
+                            {
+                              "field": "total_votes_candidate",
+                              "order": "descending"
+                            }
+                          ]
+                        },{
+                            "filter":"datum.ranking==1"
+                        },
+                        {
+                            "calculate": "'The highest votes attained by candidate: 3028885, Joe Biden in Los Angeles County ' ",
+                            "as": "text_annotation"
+                        }],
+                    
+                        "mark": { "type": "text", "align": "left", "dx": 3 },
+                                        "encoding": {
+                                            "text": { "field": "text_annotation" }
+                                        }
+                                    }
+                ]
+                
+
+
+
+        
            
        
 
         
         
-
+    }
     
     
-}

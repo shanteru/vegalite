@@ -51,6 +51,7 @@
             "as": "Votes percentage"
           }
     ],
+    
     "mark": "point",
     "encoding": {
         "x": {
@@ -79,6 +80,10 @@
                 ]
             }
         },
+        "color":{"field": "Candidate",
+        "type": "nominal"},
+
+        
         "tooltip": [
             {
                 "field": "State",
@@ -106,4 +111,6 @@
 
         ]
     }
+    
+    
 }

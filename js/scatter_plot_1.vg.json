@@ -7,6 +7,40 @@
     "data": {
         "url": "https://raw.githubusercontent.com/shanteru/fit3179-homework/master/data/president_winner.csv"
     },
+    "params": [
+        {
+          "name": "Votes_Above",
+          "value": 0,
+          "bind": {
+            "input": "range",
+            "min": 0,
+            "max": 4000000,
+            "step": 100000,
+            "name": "Minimum Votes in County: "
+          }
+        },
+        {
+          "name": "Candidate_selection",
+          "bind": {
+            "input": "select",
+            "options": [
+              null,
+              "Donald Trump",
+              "Jo Jogernsen",
+              "Joe Biden",
+              "Write-ins"
+            ],
+            "labels":[
+              "Show All",
+              "Donald Trump",
+              "Jo Jogernsen",
+              "Joe Biden",
+              "Write-ins"
+            ],
+            "name": "Candidate Selection: "
+          }
+        }
+      ],
     "transform": [
         {"filter": "datum.total_votes_candidate > 0"},
         {"filter": "datum.total_votes_county > 0"},
@@ -21,6 +55,7 @@
             "field": "total_votes_candidate",
             "type": "quantitative",
             "axis": {"tickCount": 7},
+            "title":"Candidate's Total Votes",
             "scale": {
                 "type": "log",
                 "domain": [
@@ -33,6 +68,7 @@
             "field": "total_votes_county",
             "type": "quantitative",
             "axis": {"tickCount": 7},
+            "title":"County's Total Votes",
             "scale": {
                 "type": "log",
                 "domain": [

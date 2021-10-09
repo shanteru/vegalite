@@ -15,7 +15,7 @@
           "min": 0,
           "max": 4000000,
           "step": 100000,
-          "name": "Minimum Votes: "
+          "name": "Minimum Votes in County: "
         }
       },
       {
@@ -51,16 +51,16 @@
     ],
     "encoding": {
       "x": {
-        "field": "percent",
+        "field": "total_votes_county",
         "type": "quantitative",
-        "title": "VEP Turnout rate",
-        "axis": {"tickCount": 4},
-        "scale": {"type": "log", "domain": [1, 100]}
+        "axis": {"tickCount": 6},
+        "scale": {"type": "log", "domain": [1, 4000000]}
       },
       "y": {
         "field": "total_votes_candidate",
         "type": "quantitative",
         "axis": {"tickCount": 6},
+        "title": "Total votes of candidate",
         "scale": {"type": "log", "domain": [1, 4000000]}
       }
     },

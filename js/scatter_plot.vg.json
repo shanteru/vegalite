@@ -54,7 +54,7 @@
         "field": "percent",
         "type": "quantitative",
         "title": "VEP Turnout rate",
-        "axis": {"tickCount": 7},
+        "axis": {"tickCount": 4},
         "scale": {"type": "log", "domain": [1, 100]}
       },
       "y": {

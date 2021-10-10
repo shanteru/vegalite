@@ -26,12 +26,16 @@
             "options": [
               null,
               "Donald Trump",
-              "Joe Biden"
+                          "Jo Jogernsen",
+                          "Joe Biden",
+                          "Write-ins"
             ],
             "labels":[
               "Show All",
               "Donald Trump",
-              "Joe Biden"
+                          "Jo Jogernsen",
+                          "Joe Biden",
+                          "Write-ins"
             ],
             "name": "Candidate Selection: "
           }
@@ -129,175 +133,7 @@
                           {"field": "County", "type": "nominal", "format": ","},
                           {"field": "Candidate", "type": "nominal", "format": ","},
                           {"field": "total_votes_candidate", "type": "quantitative","title":"Total Votes", "format": ","},
-                          {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Total votes of Presidential winner and their Votes Percentage",
-    "width": 800,
-    "height": 600,
-    "description": "A scatterplot showing total votes for presidential seat in US 2020 Election.",
-    "data": {
-        "url": "https://raw.githubusercontent.com/shanteru/fit3179-homework/master/data/president_winner.csv"
-    },
-    "params": [
-        {
-          "name": "Votes_Above",
-          "value": 0,
-          "bind": {
-            "input": "range",
-            "min": 0,
-            "max": 3000000,
-            "step": 1000,
-            "name": "Minimum Votes of Candidate in County: "
-          }
-        },
-        {
-          "name": "Candidate_selection",
-          "bind": {
-            "input": "select",
-            "options": [
-              null,
-              "Donald Trump",
-              "Joe Biden"
-            ],
-            "labels":[
-              "Show All",
-              "Donald Trump",
-              "Joe Biden"
-            ],
-            "name": "Candidate Selection: "
-          }
-        }
-      ],
-    "transform": [
-        
-        {"filter": "datum.total_votes_candidate > 0"},
-        {"filter": "datum.total_votes_county > 0"},
-        {"filter": "datum.total_votes_candidate > Votes_Above"},
-      {"filter": "Candidate_selection == null || datum.Candidate == Candidate_selection"},
-        {
-            "calculate": "(datum.total_votes_candidate/datum.total_votes_county) * 100",
-            "as": "Votes percentage"
-          }
-          
-
-    ],
-    
-        
-        "encoding": {
-            "x": {
-                "field": "total_votes_candidate",
-                "type": "quantitative",
-                "axis": {"tickCount": 5},
-                "title":"Candidate's Total Votes",
-                "scale": {
-                    "type": "log",
-                    "domain": [
-                        1,
-                        10000000
-                    ]
-                }
-            },
-            "y": {
-                "field": "total_votes_county",
-                "type": "quantitative",
-                "axis": {"tickCount": 5},
-                "title":"County's Total Votes",
-                "scale": {
-                    "type": "log",
-                    "domain": [
-                        1,
-                        10000000
-                    ]
-                }
-            },
-            "color":{"field": "Candidate",
-            "type": "nominal"},
-            
-            "tooltip": [
-                {"field": "State", "type": "nominal"},
-                {"field": "County", "type": "nominal"},
-                {"field": "Candidate", "type": "nominal"},
-                {"field": "total_votes_candidate", "type": "quantitative", "format": ","},
-                {
-                "field": "Votes Percentage",
-                "type": "quantitative",
-                "format": ".2f"
-                }
-                ]},
-                "layer": [
-                    {
-                      "selection": {
-                        "candidate_highlight": {
-                          "type": "multi",
-                          "fields": ["Candidate"],
-                          "bind": "legend"
-                        }
-                      },
-                      "mark": "circle",
-                      "encoding": {
-                        "size": {
-                          "field": "total_votes_county",
-                          "type": "quantitative",
-                          "scale": {
-                            "type": "threshold",
-                            "domain": [5000, 500000, 1000000, 2000000, 4000000],
-                            "range": [10, 50, 150, 200, 300, 400]
-                          },
-                          "legend": {"format": ".1s"}
-                        },
-                        "color": {
-                          "field": "Candidate",
-                          "type": "nominal",
-                          "scale": {
-                            "domain": [
-                              
-                          "Donald Trump",
-                          "Jo Jogernsen",
-                          "Joe Biden",
-                          "Write-ins"
-                            ],
-                            "range": [
-                              "#e41a1c",
-                              "#984ea3",
-                              "#ff7f00",
-                              "#a6cee3"
-                            ]
-                          }
-                        },
-                        "opacity": {
-                          "condition": {"selection": "candidate_highlight", "value": 0.6},
-                          "value": 0.2
-                        },
-                        "tooltip": [
-                          {"field": "State", "type": "nominal"},
-                          {"field": "County", "type": "nominal", "format": ","},
-                          {"field": "Candidate", "type": "nominal", "format": ","},
-                          {"field": "total_votes_candidate", "type": "quantitative","title":"Total Votes", "format": ","},
                           {"field": "total_votes_county", "type": "quantitative","title":"Total Votes in County", "format": ","},
-                          {
-                            "field": "Votes percentage",
-                            "type": "quantitative",
-                            "format": ".2f"
-                          }
-                        ]
-                      }
-                    }
-                    
-                    
-                  ]
-    
-                
-                
-
-
-
-        
-           
-       
-
-        
-        
-    }
                           {
                             "field": "Votes percentage",
                             "type": "quantitative",

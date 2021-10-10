@@ -51,7 +51,7 @@
 
     ],
     
-        "mark": {"type": "point"},
+        
         "encoding": {
             "x": {
                 "field": "total_votes_candidate",
@@ -92,7 +92,67 @@
                 "type": "quantitative",
                 "format": ".2f"
                 }
-                ]}
+                ]},
+                "layer": [
+                    {
+                      "selection": {
+                        "candidate_highlight": {
+                          "type": "multi",
+                          "fields": ["Candidate"],
+                          "bind": "legend"
+                        }
+                      },
+                      "mark": "circle",
+                      "encoding": {
+                        "size": {
+                          "field": "total_votes_county",
+                          "type": "quantitative",
+                          "scale": {
+                            "type": "threshold",
+                            "domain": [5000, 500000, 1000000, 2000000, 4000000],
+                            "range": [10, 50, 150, 200, 300, 400]
+                          },
+                          "legend": {"format": ".1s"}
+                        },
+                        "color": {
+                          "field": "Candidate",
+                          "type": "nominal",
+                          "scale": {
+                            "domain": [
+                              
+                          "Donald Trump",
+                          "Jo Jogernsen",
+                          "Joe Biden",
+                          "Write-ins"
+                            ],
+                            "range": [
+                              "#e41a1c",
+                              "#984ea3",
+                              "#ff7f00",
+                              "#a6cee3"
+                            ]
+                          }
+                        },
+                        "opacity": {
+                          "condition": {"selection": "candidate_highlight", "value": 0.6},
+                          "value": 0.2
+                        },
+                        "tooltip": [
+                          {"field": "State", "type": "nominal"},
+                          {"field": "County", "type": "nominal", "format": ","},
+                          {"field": "Candidate", "type": "nominal", "format": ","},
+                          {"field": "total_votes_candidate", "type": "quantitative","title":"Total Votes", "format": ","},
+                          {
+                            "field": "Votes percentage",
+                            "type": "quantitative",
+                            "format": ".2f"
+                          }
+                        ]
+                      }
+                    }
+                    
+                    
+                  ]
     
                 
                 

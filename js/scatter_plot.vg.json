@@ -76,7 +76,7 @@
         "mark": "circle",
         "encoding": {
           "size": {
-            "field": "Votes",
+            "field": "total_votes_county",
             "type": "quantitative",
             "scale": {
               "type": "threshold",

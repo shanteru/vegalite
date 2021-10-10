@@ -118,7 +118,7 @@
                             "as": "text_annotation"
                         }],
                     
-                        "mark": { "type": "text", "align": "left", "dx": 3 },
+                        "mark": { "type": "text", "align": "centre", "dx": 1 },
                                         "encoding": {
                                             "text": { "field": "text_annotation" }
                                         }

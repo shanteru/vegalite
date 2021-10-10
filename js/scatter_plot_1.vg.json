@@ -154,9 +154,7 @@
             }
           ]
         },
-        {
-          "filter": "datum.ranking == 1"
-        },
+        { "filter": "datum['total_votes_candidate'] == 5" },
         {
           "calculate": "'Lowest Gained Votes by a Candidate in a County: ' + datum['total_votes_candidate']",
           "as": "text_annotation"

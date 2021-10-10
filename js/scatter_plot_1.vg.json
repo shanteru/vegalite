@@ -150,7 +150,14 @@
       },
       "encoding": {
         "text": { "field": "County", "type": "nominal" },
-        "color": { "value": "black" }
+        "color": { "value": "black" },
+        "opacity": {
+          "condition": {
+            "test": "datum['County'] == 'Washington County' || datum['County'] =='Los Angeles County'",
+            "value": 1
+          },
+          "value": 0
+        }
       },
       "tooltip": [
         { "field": "State", "type": "nominal" },

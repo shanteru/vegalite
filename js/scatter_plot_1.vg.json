@@ -14,7 +14,7 @@
           "bind": {
             "input": "range",
             "min": 0,
-            "max": 3200000,
+            "max": 3000000,
             "step": 1000,
             "name": "Minimum Votes of Candidate in County: "
           }
@@ -26,16 +26,12 @@
             "options": [
               null,
               "Donald Trump",
-              "Jo Jogernsen",
-              "Joe Biden",
-              "Write-ins"
+              "Joe Biden"
             ],
             "labels":[
               "Show All",
               "Donald Trump",
-              "Jo Jogernsen",
-              "Joe Biden",
-              "Write-ins"
+              "Joe Biden"
             ],
             "name": "Candidate Selection: "
           }
@@ -48,7 +44,7 @@
         {"filter": "datum.total_votes_candidate > Votes_Above"},
       {"filter": "Candidate_selection == null || datum.Candidate == Candidate_selection"},
         {
-            "calculate": "datum.total_votes_candidate/datum.total_votes_county * 100",
+            "calculate": "(datum.total_votes_candidate/datum.total_votes_county) * 100",
             "as": "Votes percentage"
           }
           
@@ -84,7 +80,9 @@
                 }
             },
             "color":{"field": "Candidate",
-            "type": "nominal"},"tooltip": [
+            "type": "nominal"},
+            
+            "tooltip": [
                 {"field": "State", "type": "nominal"},
                 {"field": "County", "type": "nominal"},
                 {"field": "Candidate", "type": "nominal"},
@@ -94,36 +92,9 @@
                 "type": "quantitative",
                 "format": ".2f"
                 }
-                ]},
+                ]}
     
-                "layer":[
-                    {"transform": [
-                        {"window": [
-                            {
-                              "op": "rank",
-                              "as": "ranking"
-                            }
-                          ],
-                          "sort": [
-                            {
-                              "field": "total_votes_candidate",
-                              "order": "descending"
-                            }
-                          ]
-                        },{
-                            "filter":"datum.ranking==1"
-                        },
-                        {
-                            "calculate": "'The highest votes attained by candidate: '  + datum['total_votes_candidate'] ",
-                            "as": "text_annotation"
-                        }],
-                    
-                        "mark": { "type": "text", "align": "centre", "dx": 1 },
-                                        "encoding": {
-                                            "text": { "field": "text_annotation" }
-                                        }
-                                    }
-                ]
+                
                 
 
 

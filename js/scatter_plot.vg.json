@@ -53,13 +53,13 @@
       "x": {
         "field": "total_votes_county",
         "type": "quantitative",
-        "axis": {"tickCount": 6},
+        "axis": {"tickCount": 5},
         "scale": {"type": "log", "domain": [1, 4000000]}
       },
       "y": {
         "field": "total_votes_candidate",
         "type": "quantitative",
-        "axis": {"tickCount": 6},
+        "axis": {"tickCount": 5},
         "title": "Total votes of candidate",
         "scale": {"type": "log", "domain": [1, 4000000]}
       }

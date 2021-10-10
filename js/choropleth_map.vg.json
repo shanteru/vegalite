@@ -1,37 +1,39 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Total votes for President seat in 2020 US Election by State",
-    "width": 1000,
-    "height": 600,
-    "projection": {"type": "equirectangular"},
-    "data": {
-      "url": "https://raw.githubusercontent.com/shanteru/fit3179-homework/master/US_States_SOVI_Infographics.json",
-      "format": {"type": "topojson", "feature": "US_States_SOVI_Infographics"}
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Total votes for President seat in 2020 US Election by State",
+  "width": 700,
+  "height": 600,
+  "projection": { "type": "equirectangular" },
+  "data": {
+    "url": "https://raw.githubusercontent.com/shanteru/fit3179-homework/master/US_States_SOVI_Infographics.json",
+    "format": { "type": "topojson", "feature": "US_States_SOVI_Infographics" }
+  },
+  "transform": [
+    {
+      "lookup": "properties.STATE_NAME",
+      "from": {
+        "data": {
+          "url": "https://raw.githubusercontent.com/shanteru/fit3179-homework/master/data/president_state.csv"
+        },
+        "key": "state",
+        "fields": ["total_votes"]
+      }
     },
-    "transform": [
-      {
-        "lookup": "properties.STATE_NAME",
-        "from": {
-          "data": {
-            "url": "https://raw.githubusercontent.com/shanteru/fit3179-homework/master/data/president_state.csv"
-          },
-          "key": "state",
-          "fields": ["total_votes"]
-        }
-      },
-      {"calculate": "datum.total_votes/datum.properties.POPULATION * 100000" , "as" : "Total votes per 1 million population" }
-    ],
-    "mark": {"type": "geoshape"},
-    "encoding": {
-      "color": {
-        "field": "Total votes per 1 million population",
-        "type": "quantitative",
-        "scale": {"type": "threshold",
-        "domain": [45000, 50000,55000,60000]}
-      },
-      "tooltip": [
-        {"field": "properties.STATE_NAME", "type": "nominal", "title": "State"},
-        {"field": "total_votes", "type": "quantitative", "title" : "Total Votes"}
-      ]
+    {
+      "calculate": "datum.total_votes/datum.properties.POPULATION * 100000",
+      "as": "Total votes per 1 million population"
     }
+  ],
+  "mark": { "type": "geoshape" },
+  "encoding": {
+    "color": {
+      "field": "Total votes per 1 million population",
+      "type": "quantitative",
+      "scale": { "type": "threshold", "domain": [45000, 50000, 55000, 60000] }
+    },
+    "tooltip": [
+      { "field": "properties.STATE_NAME", "type": "nominal", "title": "State" },
+      { "field": "total_votes", "type": "quantitative", "title": "Total Votes" }
+    ]
   }
+}

@@ -181,41 +181,6 @@
           "format": ".2f"
         }
       ]
-    }, {
-        "transform": [
-          {
-            "window": [
-              {
-                "op": "rank",
-                "as": "ranking"
-              }
-            ],
-            "sort": [
-              {
-                "field": "total_votes_candidate",
-                "order": "ascending"
-              }
-            ]
-          },
-          {
-            "filter": "datum.ranking == 1"
-          },
-          {
-            "calculate": "'Lowest Gained Votes by a Candidate in a County: ' + datum['total_votes_candidate']",
-            "as": "text_annotation"
-          }
-        ],
-        "mark": {
-          "type": "text",
-          "align": "left",
-          "dx": 4,
-          "fill": "black"
-        },
-        "encoding": {
-          "text": {
-            "field": "text_annotation"
-          }
-        }
-      }
+    }
   ]
 }

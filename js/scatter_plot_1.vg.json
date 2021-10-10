@@ -137,50 +137,6 @@
           }
         ]
       }
-    },
-    {
-      "mark": {
-        "type": "text",
-        "align": "right",
-        "baseline": "middle",
-        "dx": -12,
-        "fontSize": 11.5,
-
-        "fontStyle": "italic"
-      },
-      "encoding": {
-        "text": { "field": "County", "type": "nominal" },
-        "color": { "value": "black" },
-        "opacity": {
-          "condition": {
-            "test": "datum['County'] == 'Washington County' || datum['County'] =='Los Angeles County''",
-            "value": 1
-          },
-          "value": 0
-        }
-      },
-      "tooltip": [
-        { "field": "State", "type": "nominal" },
-        { "field": "County", "type": "nominal" },
-        { "field": "Candidate", "type": "nominal" },
-        {
-          "field": "total_votes_candidate",
-          "type": "quantitative",
-          "title": "Total Votes",
-          "format": ","
-        },
-        {
-          "field": "total_votes_county",
-          "type": "quantitative",
-          "title": "Total Votes in County",
-          "format": ","
-        },
-        {
-          "field": "Votes percentage",
-          "type": "quantitative",
-          "format": ".2f"
-        }
-      ]
     }
   ]
 }

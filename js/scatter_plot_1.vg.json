@@ -42,21 +42,7 @@
         }
       ],
     "transform": [
-        {"window": [
-            {
-              "op": "rank",
-              "as": "ranking"
-            }
-          ],
-          "sort": [
-            {
-              "field": "total_votes_candidate",
-              "order": "descending"
-            }
-          ]
-        },{
-            "filter":"datum.ranking==1"
-        },
+        
         {"filter": "datum.total_votes_candidate > 0"},
         {"filter": "datum.total_votes_county > 0"},
         {"filter": "datum.total_votes_candidate > Votes_Above"},

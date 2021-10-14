@@ -1,0 +1,223 @@
+/* VEGA STUFF */
+#symbol_map {
+  top: 100px;
+  bottom: 100px;
+  left: 100px;
+  right: 100px;
+}
+
+
+
+/* TYPICAL HTML STUFF */
+
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+#header {
+  height: 100vh;
+  background-image: url(images/bg1.jpg);
+  background-position: center;
+  background-size: cover;
+}
+
+.container {
+  margin-right: 100px;
+  margin-left: 100px;
+}
+
+.logo {
+  margin-top: 30px;
+  width: 500px;
+}
+
+.header-text {
+  color: #fff;
+  font-style: italic;
+  max-width: 500px;
+}
+
+.progress {
+  position: relative;
+  width: 500px;
+  height: 50px;
+  background: linear-gradient(130deg, red, #c2262f);
+  border-radius: 20px;
+
+  overflow: hidden;
+}
+.progress-fill {
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(130deg, blue, #1261a0);
+}
+.progress-text {
+  position: absolute;
+  top: 25%;
+  right: 5px;
+  font: bold 20px "Quicksand", sans-serif;
+  color: #fff;
+}
+.progress-text-1 {
+  position: absolute;
+  top: 25%;
+  left: 5px;
+  font: bold 20px "Quicksand", sans-serif;
+  color: #fff;
+}
+
+.ballot-text {
+  position: absolute;
+  height: 70px;
+  top: 200px;
+  color: rgb(255, 249, 231);
+  text-align: center;
+
+  
+  background: linear-gradient(100deg, red, blue);
+  width: 60em;
+  border-radius: 10px;
+}
+.ballot {
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.profile1 {
+  display: inline-block;
+  padding: 15px;
+  background: linear-gradient(130deg, blue, #1261a0);
+  /* margin: auto; */
+  border-radius: 50%;
+}
+
+.profile1 img {
+  display: block;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+
+.profile2 {
+  display: inline-block;
+  padding: 15px;
+  background: linear-gradient(130deg, #c2262f, red);
+  /* margin: auto; */
+  border-radius: 50%;
+}
+
+.profile2 img {
+  display: block;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+
+#sideNav {
+  width: 250px;
+  height: 100vh;
+  position: fixed;
+  right: -250px;
+  top: 0;
+  background: linear-gradient(130deg, #c2262f, #1261a0);
+  transition: 0.3s;
+}
+
+nav ul li {
+  list-style: none;
+  margin: 90px 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+}
+
+i {
+  color: white;
+  position: fixed;
+  width: 30px;
+  height: 30px;
+  right: 65px;
+  top: 20px;
+  /* z-index: 2; */
+  cursor: pointer;
+  transition: 0.3s;
+  background: linear-gradient(130deg, #c2262f, #1261a0);
+  justify-content: center;
+  align-items: center;
+}
+
+/* visualisation */
+.vis-container {
+  width: 100%;
+  
+}
+
+/* overview */
+
+#over {
+  padding: 100px 0;
+
+  height: 100vh;
+  background-image: url(images/bg2.jpg);
+  background-position: center;
+  background-size: cover;
+}
+
+
+
+
+
+
+
+
+
+/* president */
+
+#pres {
+  padding: 100px 0;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  height: 100vh;
+  background-image: url(images/bg2.jpg);
+  background-position: center;
+  background-size: cover;
+}
+
+.pres-left {
+  flex-basis: 50%;
+  width: 100%;
+}
+
+.pres-right {
+  flex-basis: 50%;
+}
+
+/* senate */
+#senate {
+  padding: 100px 0;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  height: 100vh;
+  background-image: url(images/bg2.jpg);
+  background-position: center;
+  background-size: cover;
+}
+
+.senate-left {
+  flex-basis: 50%;
+  width: 100%;
+}
+
+.senate-right {
+  flex-basis: 50%;
+}

@@ -180,12 +180,11 @@ i {
 }
 
 .pres-left {
-  flex-basis: 50%;
-  
+  flex-basis: 60%;
 }
 
 .pres-right {
-  flex-basis: 50%;
+  flex-basis: 40%;
 }
 
 /* senate */

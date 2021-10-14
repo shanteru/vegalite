@@ -6,10 +6,7 @@
   right: 100px;
 }
 
-
-
 /* TYPICAL HTML STUFF */
-
 
 * {
   margin: 0;
@@ -76,7 +73,6 @@
   color: rgb(255, 249, 231);
   text-align: center;
 
-  
   background: linear-gradient(100deg, red, blue);
   width: 60em;
   border-radius: 10px;
@@ -157,7 +153,6 @@ i {
 /* visualisation */
 .vis-container {
   width: 100%;
-  
 }
 
 /* overview */
@@ -170,14 +165,6 @@ i {
   background-position: center;
   background-size: cover;
 }
-
-
-
-
-
-
-
-
 
 /* president */
 
@@ -194,7 +181,7 @@ i {
 
 .pres-left {
   flex-basis: 50%;
-  width: 100%;
+  
 }
 
 .pres-right {

@@ -29,7 +29,7 @@
     "color": {
       "field": "Total votes per 1 million population",
       "type": "quantitative",
-      "scale": { "type": "threshold", "domain": [45000, 50000, 55000, 60000], "range": ["#e41a1c", "#984ea3", "#ff7f00", "#a6cee3"] }
+      "scale": { "type": "threshold", "domain": [45000, 50000, 55000, 60000] }
     },
     "tooltip": [
       { "field": "properties.STATE_NAME", "type": "nominal", "title": "State" },

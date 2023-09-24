@@ -3,7 +3,7 @@
 ## Resources
 US 2020 Election [Kaggle](https://www.kaggle.com/unanimad/us-election-2020)
 ## Link
-Page published [here](https://shanteru.github.io/fit3179-homework/)
+Page published [here](https://shanteru.github.io/vegalite/)
 
 
 Author - Chantelle Loh Yi Wei (31171109)
